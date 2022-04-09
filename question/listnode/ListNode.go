@@ -33,3 +33,16 @@ func getListNode() *ListNode {
 
 	return node1
 }
+
+func getCustomListNode(vals []int) *ListNode {
+	ret := &ListNode{}
+	retCp := ret
+	for _, val := range vals {
+		retCp.Next = &ListNode{
+			Val: val,
+		}
+		retCp = retCp.Next
+	}
+
+	return ret.Next
+}

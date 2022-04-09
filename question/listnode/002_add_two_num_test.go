@@ -5,9 +5,10 @@ import (
 	"testing"
 )
 
-func Test_reverseList(t *testing.T) {
+func Test_addTwoNumbers(t *testing.T) {
 	type args struct {
-		head *ListNode
+		l1 *ListNode
+		l2 *ListNode
 	}
 	tests := []struct {
 		name string
@@ -17,26 +18,28 @@ func Test_reverseList(t *testing.T) {
 		{
 			name: "boundary case",
 			args: args{
-				nil,
+				l1: nil,
+				l2: nil,
 			},
 		},
 		{
-			name: "single case",
+			name: "case1",
 			args: args{
-				getSingleListNode(),
+				l1: getSingleListNode(),
+				l2: getListNode(),
 			},
 		},
 		{
-			name: "normal case",
+			name: "case2",
 			args: args{
-				getListNode(),
+				l1: getListNode(),
+				l2: getListNode(),
 			},
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			t.Logf("before reverseList() = %v", util.MarshalIndent(tt.args.head))
-			t.Logf("finish reverseList() = %v", util.MarshalIndent(reverseList(tt.args.head)))
+			t.Logf("after addTwoNumbers(), args: %v", util.MarshalIndent(addTwoNumbers(tt.args.l1, tt.args.l2)))
 		})
 	}
 }
