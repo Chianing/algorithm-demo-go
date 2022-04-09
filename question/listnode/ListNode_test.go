@@ -23,7 +23,7 @@ func Test_getCustomListNode(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			t.Logf("before getCustomListNode(), args: %v", tt.args)
-			t.Logf("after getCustomListNode(), args: %v", util.MarshalIndent(getCustomListNode(tt.args.vals)))
+			t.Logf("after getCustomListNode(), args: %v", util.MarshalIndent(getCustomListNode(tt.args.vals...)))
 		})
 	}
 }
