@@ -66,3 +66,42 @@ func sortShell(arr []int) []int {
 	return arr
 
 }
+
+// 归并排序
+func sortMerge(arr []int) []int {
+	length := len(arr)
+	if length <= 1 {
+		return arr
+	}
+
+	mid := length / 2
+	leftArr := arr[:mid]
+	rightArr := arr[mid:]
+
+	return merge(sortMerge(leftArr), sortMerge(rightArr))
+
+}
+
+func merge(leftArr []int, rightArr []int) []int {
+	length := len(leftArr) + len(rightArr)
+	ret := make([]int, length)
+
+	for i, leftIndex, rightIndex := 0, 0, 0; i < length; i++ {
+		if leftIndex >= len(leftArr) {
+			ret[i] = rightArr[rightIndex]
+			rightIndex++
+		} else if rightIndex >= len(rightArr) {
+			ret[i] = leftArr[leftIndex]
+			leftIndex++
+		} else if leftArr[leftIndex] > rightArr[rightIndex] {
+			ret[i] = rightArr[rightIndex]
+			rightIndex++
+		} else {
+			ret[i] = leftArr[leftIndex]
+			leftIndex++
+		}
+	}
+
+	return ret
+
+}

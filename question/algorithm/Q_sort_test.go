@@ -96,3 +96,30 @@ func Test_sortShell(t *testing.T) {
 		})
 	}
 }
+
+func Test_sortMerge(t *testing.T) {
+	type args struct {
+		arr []int
+	}
+	tests := []struct {
+		name string
+		args args
+		want []int
+	}{
+		{
+			args: args{arr: arr1},
+			want: arr1Want,
+		},
+		{
+			args: args{arr: arr2},
+			want: arr2Want,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := sortMerge(tt.args.arr); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("sortMerge() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
