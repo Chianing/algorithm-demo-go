@@ -141,3 +141,50 @@ func swap(arr []int, i, j int) {
 	arr[i] = arr[j]
 	arr[j] = tmp
 }
+
+// 堆排序
+func heapSort(arr []int) []int {
+	length := len(arr)
+	if length <= 1 {
+		return arr
+	}
+
+	buildMaxHeap(arr)
+
+	for i := length - 1; i > 0; i-- {
+		swap(arr, 0, i)
+		length--
+		heapify(arr, 0, length)
+	}
+
+	return arr
+}
+
+func buildMaxHeap(arr []int) {
+	length := len(arr)
+	for i := length/2 - 1; i >= 0; i-- {
+		heapify(arr, i, length)
+	}
+}
+
+func heapify(arr []int, index, length int) {
+	if index >= length {
+		return
+	}
+
+	maxIndex := index
+	leftIndex := index*2 + 1
+	rightIndex := index*2 + 2
+	if leftIndex < length && arr[maxIndex] < arr[leftIndex] {
+		maxIndex = leftIndex
+	}
+	if rightIndex < length && arr[maxIndex] < arr[rightIndex] {
+		maxIndex = rightIndex
+	}
+
+	if maxIndex != index {
+		swap(arr, index, maxIndex)
+		heapify(arr, maxIndex, length)
+	}
+
+}
