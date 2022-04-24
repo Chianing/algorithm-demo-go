@@ -123,3 +123,40 @@ func Test_sortMerge(t *testing.T) {
 		})
 	}
 }
+
+func Test_sortQuick(t *testing.T) {
+	type args struct {
+		arr   []int
+		left  int
+		right int
+	}
+	tests := []struct {
+		name string
+		args args
+		want []int
+	}{
+		{
+			args: args{
+				arr:   arr1,
+				left:  0,
+				right: len(arr1) - 1,
+			},
+			want: arr1Want,
+		},
+		{
+			args: args{
+				arr:   arr2,
+				left:  0,
+				right: len(arr2) - 1,
+			},
+			want: arr2Want,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := sortQuick(tt.args.arr, tt.args.left, tt.args.right); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("sortQuick() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}

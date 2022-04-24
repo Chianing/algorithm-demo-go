@@ -105,3 +105,39 @@ func merge(leftArr []int, rightArr []int) []int {
 	return ret
 
 }
+
+// 快速排序
+func sortQuick(arr []int, left, right int) []int {
+	length := len(arr)
+	if length <= 1 {
+		return arr
+	}
+
+	if left < right {
+		index := getPartition(arr, left, right)
+		sortQuick(arr, left, index-1)
+		sortQuick(arr, index+1, right)
+	}
+
+	return arr
+}
+
+func getPartition(arr []int, left, right int) int {
+	index := left + 1
+	for i := index; i <= right; i++ {
+		if arr[i] < arr[left] {
+			swap(arr, i, index)
+			index++
+		}
+	}
+	index--
+
+	swap(arr, index, left)
+	return index
+}
+
+func swap(arr []int, i, j int) {
+	tmp := arr[i]
+	arr[i] = arr[j]
+	arr[j] = tmp
+}
