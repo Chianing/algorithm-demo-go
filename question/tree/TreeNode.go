@@ -20,3 +20,18 @@ func getTreeNode() *TreeNode {
 
 	return ret
 }
+
+func getMirrorTreeNode() *TreeNode {
+	ret := &TreeNode{Val: 3}
+	node1 := &TreeNode{Val: 20}
+	node2 := &TreeNode{Val: 9}
+	node3 := &TreeNode{Val: 7}
+	node4 := &TreeNode{Val: 15}
+
+	ret.Left = node1
+	ret.Right = node2
+	node1.Left = node3
+	node1.Right = node4
+
+	return ret
+}
