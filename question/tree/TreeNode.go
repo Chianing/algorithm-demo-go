@@ -6,6 +6,13 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+/*
+  3
+ / \
+9  20
+  /  \
+ 15   7
+*/
 func getTreeNode() *TreeNode {
 	ret := &TreeNode{Val: 3}
 	node1 := &TreeNode{Val: 9}
@@ -21,6 +28,13 @@ func getTreeNode() *TreeNode {
 	return ret
 }
 
+/*
+    3
+   / \
+  20  9
+ /  \
+7   15
+*/
 func getMirrorTreeNode() *TreeNode {
 	ret := &TreeNode{Val: 3}
 	node1 := &TreeNode{Val: 20}
