@@ -13,3 +13,11 @@ func GetMinInt(i1, i2 int) int {
 	}
 	return i1
 }
+
+func GetAbsInt(i int) int {
+	if i >= 0 {
+		return i
+	}
+
+	return -i
+}
