@@ -1,6 +1,6 @@
 package util
 
-func ReverseList(list []any) []any {
+func ReverseList(list []int) []int {
 	size := len(list)
 	if size < 2 {
 		return list
@@ -14,7 +14,7 @@ func ReverseList(list []any) []any {
 
 }
 
-func Swap(list []any, i1, i2 int) {
+func Swap(list []int, i1, i2 int) {
 	size := len(list)
 	if i1 < 0 || i1 >= size || i2 < 0 || i2 >= size {
 		return
