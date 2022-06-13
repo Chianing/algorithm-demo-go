@@ -20,8 +20,6 @@ func Swap(list []int, i1, i2 int) {
 		return
 	}
 
-	tmp := list[i1]
-	list[i1] = list[i2]
-	list[i2] = tmp
+	list[i1], list[i2] = list[i2], list[i1]
 
 }
